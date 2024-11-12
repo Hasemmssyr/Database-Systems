@@ -88,8 +88,8 @@ create table publisher (
     email varchar(50) not null
 );
 
-alter table books add author_id;
-alter table books add publisher_id;
+alter table books add author_id char(5);
+alter table books add publisher_id char(5);
 
 alter table books
 add foreign key (author_id) references authors(id) on delete cascade on update cascade,
@@ -139,11 +139,11 @@ insert into positions values
 ('PS003', 'Security', False);
 
 insert into employees values
-('EM001', 'Andi Gading', 'andi@gmail.com', 'P', '081628492610', 'Jl. Merdeka No.10', 'PS001'),
-('EM002', 'Budi Sitombing', 'budi@gmail.com', 'L', '085864927581', 'Jl. Sukun Raya No.25', 'PS003'),
-('EM003', 'Jennifer Tina', 'tina@gmail.com', 'P', '089603471812', 'Jl. Pahlawan No.5', 'PS001'),
-('EM004', 'Lili Sari', 'lili@gmail.com', 'P', '088385793136', 'Jl. Cendana No.8', 'PS002'),
-('EM005', 'Alexander Agus', 'agus@gmail.com', 'L', '088273659814', 'Jl. Bunga No.12', 'PS001');
+('EM001', 'Andi Gading', 'andi@gmail.com', 'P', 'Jl. Merdeka No.10', 'PS001', '081628492610'),
+('EM002', 'Budi Sitombing', 'budi@gmail.com', 'L', 'Jl. Sukun Raya No.25', 'PS003', '085864927581'),
+('EM003', 'Jennifer Tina', 'tina@gmail.com', 'P', 'Jl. Pahlawan No.5', 'PS001', '089603471812'),
+('EM004', 'Lili Sari', 'lili@gmail.com', 'P', 'Jl. Cendana No.8', 'PS002', '088385793136'),
+('EM005', 'Alexander Agus', 'agus@gmail.com', 'L', 'Jl. Bunga No.12', 'PS001', '088273659814');
 
 insert into borrows values 
 ('BR001', '2024-5-6', '2024-5-20', '2024-5-20', NULL, '3326162409040002', 'EM004'),
