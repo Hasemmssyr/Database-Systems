@@ -180,3 +180,91 @@ insert into books_borrows values
 ('BK004', 'BR003'),
 ('BK005', 'BR004'),
 ('BK002', 'BR005');
+
+
+-- number 6
+ALTER TABLE books_borrows DROP FOREIGN KEY books_borrows_ibfk_2;
+
+delete from borrows;
+delete from books_borrows;
+
+ALTER TABLE books_borrows MODIFY borrow_id INT;
+ALTER TABLE borrows MODIFY id INT AUTO_INCREMENT;
+
+ALTER TABLE books_borrows 
+ADD FOREIGN KEY (borrow_id) REFERENCES borrows(id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+INSERT INTO borrows (borrow_date, return_date, due_date, fine, member_id, employee_id) VALUES
+('2024-05-06', '2024-05-20', '2024-05-20', NULL, '3326162409040002', 'EM004'),
+('2024-07-14', '2024-07-29', '2024-07-28', 5000.00, '3525017006950028', 'EM001'),
+('2024-09-22', '2024-10-08', '2024-10-06', 10000.00, '3525017006520020', 'EM003'),
+('2024-10-03', '2024-10-20', '2024-10-17', 15000.00, '3305040901072053', 'EM002'),
+('2024-11-02', NULL, '2024-11-16', NULL, '3326161509700004', 'EM005');
+
+INSERT INTO books_borrows (book_id, borrow_id) VALUES
+('BK001', 1),
+('BK003', 2),
+('BK001', 2),
+('BK004', 3),
+('BK005', 4),
+('BK002', 5);
+
+
+-- number 7
+UPDATE borrows 
+SET return_date = CURRENT_DATE 
+WHERE member_id = '3326161509700004';
+
+
+-- number 8
+UPDATE borrows 
+SET fine = NULL 
+WHERE member_id IN ('3525017006520020', '3305040901072053');
+
+
+-- number 9
+INSERT INTO borrows (borrow_date, return_date, due_date, fine, member_id, employee_id)
+SELECT 
+    '2024-11-03', 
+    NULL, 
+    DATE_ADD('2024-11-03', INTERVAL 14 DAY), 
+    NULL, 
+    m.NIK,
+    e.id
+FROM members m, employees e
+WHERE m.name = 'Beni Soeharti' AND e.name = 'Alexander Agus';
+
+INSERT INTO books_borrows (book_id, borrow_id)
+SELECT b.id, LAST_INSERT_ID()
+FROM books b
+WHERE b.title = 'Complete Dictionary of Information Technology Terms';
+
+UPDATE books 
+SET stock = stock - 1 
+WHERE title = 'Complete Dictionary of Information Technology Terms';
+
+
+-- number 10
+INSERT INTO employees (id, name, email, gender, addres, phone_number, position_id)
+VALUES (
+    'EM006',
+    'Aspas Gata',
+    'aspasgata@gmail.com',
+    'L',
+    'Jl. Badut No.62',
+    '0895323390308',
+    'PS001'
+);
+
+
+-- number 11
+UPDATE employees
+SET name = 'Andi Haki',
+    gender = 'L',
+    phone_number = '081628492611'
+WHERE name = 'Andi Gading';
+
+
+-- number 12
+DELETE FROM members WHERE name = 'Jasmine Neroli';
+DELETE FROM employees WHERE name = 'Aspas Gata';
