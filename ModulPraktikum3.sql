@@ -1,3 +1,4 @@
+-- DROP DATABASE GamingShop;
 CREATE DATABASE GamingShop;
 USE GamingShop;
 
@@ -187,7 +188,7 @@ VALUES
 SELECT customer.cst_name
 FROM customer
 JOIN membership ON customer.cst_id = membership.customer_cst_id
-WHERE membership.mbr_points > 100 AND membership.mbr_points < 150;
+WHERE membership.mbr_points > 100 AND membership.mbr_points < 115;
 
 -- number 2
 SELECT * 
@@ -198,7 +199,7 @@ WHERE tr_paymentMethod = 'Cash';
 SELECT customer_cst_id, ROUND(AVG(tr_totalBill), 2) AS averageBill
 FROM transaction
 GROUP BY customer_cst_id
-HAVING averageBill > 500000;
+HAVING averageBill > 5000000;
 
 -- number 4
 SELECT COUNT(tr_totalBill) AS totalTransaction, SUM(tr_totalBill) AS totalNominal
@@ -246,16 +247,18 @@ WITH cte AS (
 SELECT cte.customer_cst_id, customer.cst_name, cte.totalbill
 FROM customer
 JOIN cte ON customer.cst_id = cte.customer_cst_id
-WHERE cte.totalbill > (SELECT AVG(totalbill) FROM cte);
+WHERE cte.totalbill > (SELECT AVG(tr_totalbill) FROM transaction);
 
 -- number 9
-SELECT * FROM customer
-WHERE cst_id IN (
-    SELECT customer_cst_id
+WITH cte AS (
+    SELECT transaction.customer_cst_id AS customer_id, COUNT(transaction.customer_cst_id) AS TotalTransaction
     FROM transaction
-    GROUP BY customer_cst_id
-    HAVING COUNT(customer_cst_id) > 1
-);
+    GROUP BY transaction.customer_cst_id
+    HAVING TotalTransaction > 1
+)
+SELECT customer.cst_id, customer.cst_name, cte.TotalTransaction
+FROM customer
+JOIN cte ON customer.cst_id = cte.customer_id;
 
 -- number 10
 SELECT * FROM item
