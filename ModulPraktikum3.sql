@@ -1,4 +1,3 @@
--- DROP DATABASE GamingShop;
 CREATE DATABASE GamingShop;
 USE GamingShop;
 
