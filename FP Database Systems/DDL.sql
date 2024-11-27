@@ -1,6 +1,8 @@
+DROP DATABASE IF EXISTS OnlineCourse;
 CREATE DATABASE OnlineCourse;
 USE OnlineCourse;
 
+-- DDL
 -- Table: Users
 CREATE TABLE Users (
     user_ID CHAR(5) PRIMARY KEY,
