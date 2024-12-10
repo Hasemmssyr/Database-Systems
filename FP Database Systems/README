@@ -1,1 +1,15 @@
+Simple Query
+1. show payment details from course registration with title 'Geografi'
+2. List the full name of tutors and the titles of courses they are teaching.
+3. List the user's full name, course title, lesson title, quiz title, and score for all users who have attempted quizzes. Sort the result by user's full name and course title.
 
+Agregate Query
+4. Show course id, course title and Total Revenue earned by each course. Sort by total income starting from highest
+5. display course data along with the average rating from each user then sort by highest rating
+6. displays tutor ID, tutor name and specialist tutors with many users they have taught. Displays the top 3 tutors
+7. Display the lesson title of the Biology Course, the average score obtained on the quizzes for that lesson, and sort by highest average quiz score.
+
+Nested Query
+8. Find Username, full name, and Email for Users Who Have Passed the Geometry Quiz
+9. Display the username, course title, number of reviews the user has given for each course, and the average rating given. Only display users who have given more than 3 reviews for a particular course, and sort the results by the highest average rating.
+10. Display the course name (course_title), tutor name (tutor_full_name), and total amount of payments received by each tutor for the courses they teach. Display only tutors who have received more than the average total payment received by all tutors. Sort the results by highest total payment amount.
