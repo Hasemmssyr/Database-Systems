@@ -21,16 +21,16 @@ INSERT INTO Users (user_ID, user_username, user_email, user_full_name, user_phon
 ('U020', 'user20', 'user20@gmail.com', 'Vina Lestari', '08123456798', '2024-12-01');
 
 INSERT INTO Courses (course_ID, course_title, course_description, course_price, course_category) VALUES
-('C001', 'Matematika', 'Pelajaran Matematika untuk SMA', 150000.00, 'SMA'),
-('C002', 'Fisika', 'Pelajaran Fisika untuk SMA', 150000.00, 'SMA'),
-('C003', 'Kimia', 'Pelajaran Kimia untuk SMA', 150000.00, 'SMA'),
-('C004', 'Biologi', 'Pelajaran Biologi untuk SMA', 150000.00, 'SMA'),
-('C005', 'Bahasa Inggris', 'Pelajaran Bahasa Inggris untuk SMA', 150000.00, 'SMA'),
-('C006', 'Ekonomi', 'Pelajaran Ekonomi untuk SMA', 150000.00, 'SMA'),
-('C007', 'Geografi', 'Pelajaran Geografi untuk SMA', 150000.00, 'SMA'),
-('C008', 'Sejarah', 'Pelajaran Sejarah untuk SMA', 150000.00, 'SMA'),
-('C009', 'Seni Budaya', 'Pelajaran Seni Budaya untuk SMA', 150000.00, 'SMA'),
-('C010', 'Pendidikan Kewarganegaraan', 'Pelajaran PKn untuk SMA', 150000.00, 'SMA');
+('C001', 'Matematika', 'Pelajaran Matematika untuk SMA', 180000.00, 'SMA'),
+('C002', 'Fisika', 'Pelajaran Fisika untuk SMA', 175000.00, 'SMA'),
+('C003', 'Kimia', 'Pelajaran Kimia untuk SMA', 170000.00, 'SMA'),
+('C004', 'Biologi', 'Pelajaran Biologi untuk SMA', 180000.00, 'SMA'),
+('C005', 'Bahasa Inggris', 'Pelajaran Bahasa Inggris untuk SMA', 140000.00, 'SMA'),
+('C006', 'Ekonomi', 'Pelajaran Ekonomi untuk SMA', 120000.00, 'SMA'),
+('C007', 'Geografi', 'Pelajaran Geografi untuk SMA', 140000.00, 'SMA'),
+('C008', 'Sejarah', 'Pelajaran Sejarah untuk SMA', 135000.00, 'SMA'),
+('C009', 'Seni Budaya', 'Pelajaran Seni Budaya untuk SMA', 120000.00, 'SMA'),
+('C010', 'Pendidikan Kewarganegaraan', 'Pelajaran PKn untuk SMA', 135000.00, 'SMA');
 
 INSERT INTO Tutors (tutor_ID, tutor_full_name, tutor_email, tutor_specialization, course_ID) VALUES
 ('T001', 'Budi Santoso', 'budi.santoso@gmail.com', 'Mathematics', 'C001'),
@@ -128,23 +128,30 @@ INSERT INTO Quiz_Attempts (user_ID, quiz_ID, attempt_date, attempt_score, attemp
 ('U020', 'Q015', '2024-12-02 12:20:00', 70, TRUE);
 
 INSERT INTO Payment (payment_ID, payment_amount, payment_method, payment_status, registration_ID) VALUES
-('P001', 150000.00, 'Transfer Bank', 'completed', 'R001'),
-('P002', 150000.00, 'Kartu Kredit', 'completed', 'R002'),
-('P003', 150000.00, 'Transfer Bank', 'completed', 'R003'),
-('P004', 150000.00, 'Kartu Kredit', 'completed', 'R004'),
-('P005', 150000.00, 'Transfer Bank', 'completed', 'R005'),
-('P006', 150000.00, 'Kartu Kredit', 'completed', 'R006'),
-('P007', 150000.00, 'Transfer Bank', 'completed', 'R007'),
-('P008', 150000.00, 'Kartu Kredit', 'completed', 'R008'),
-('P009', 150000.00, 'Transfer Bank', 'completed', 'R009'),
-('P010', 150000.00, 'Kartu Kredit', 'completed', 'R010'),
-('P011', 150000.00, 'Transfer Bank', 'completed', 'R011'),
-('P012', 150000.00, 'Kartu Kredit', 'completed', 'R012'),
-('P013', 150000.00, 'Transfer Bank', 'completed', 'R013'),
-('P014', 150000.00, 'Kartu Kredit', 'completed', 'R014'),
-('P015', 150000.00, 'Transfer Bank', 'completed', 'R015'),
-('P016', 150000.00, 'Kartu Kredit', 'completed', 'R016'),
-('P017', 150000.00, 'Transfer Bank', 'completed', 'R017'),
-('P018', 150000.00, 'Kartu Kredit', 'completed', 'R018'),
-('P019', 150000.00, 'Transfer Bank', 'completed', 'R019'),
-('P020', 150000.00, 'Kartu Kredit', 'completed', 'R020');
+('P001', 180000.00, 'Transfer Bank', 'completed', 'R001'),
+('P002', 175000.00, 'Kartu Kredit', 'completed', 'R002'),
+('P003', 170000.00, 'Transfer Bank', 'completed', 'R003'),
+('P004', 180000.00, 'Kartu Kredit', 'completed', 'R004'),
+('P005', 140000.00, 'Transfer Bank', 'completed', 'R005'),
+('P006', 120000.00, 'Kartu Kredit', 'completed', 'R006'),
+('P007', 140000.00, 'Transfer Bank', 'completed', 'R007'),
+('P008', 135000.00, 'Kartu Kredit', 'completed', 'R008'),
+('P009', 120000.00, 'Transfer Bank', 'completed', 'R009'),
+('P010', 135000.00, 'Kartu Kredit', 'completed', 'R010'),
+('P011', 180000.00, 'Transfer Bank', 'completed', 'R011'),
+('P012', 175000.00, 'Kartu Kredit', 'completed', 'R012'),
+('P013', 170000.00, 'Transfer Bank', 'completed', 'R013'),
+('P014', 180000.00, 'Kartu Kredit', 'completed', 'R014'),
+('P015', 140000.00, 'Transfer Bank', 'completed', 'R015'),
+('P016', 120000.00, 'Kartu Kredit', 'completed', 'R016'),
+('P017', 140000.00, 'Transfer Bank', 'completed', 'R017'),
+('P018', 135000.00, 'Kartu Kredit', 'completed', 'R018'),
+('P019', 120000.00, 'Transfer Bank', 'completed', 'R019'),
+('P020', 135000.00, 'Kartu Kredit', 'completed', 'R020');
+
+INSERT INTO Review (review_ID, review_comment, review_rating, review_time, user_ID, course_ID) VALUES
+('R001', 'Very informative course, well-structured lessons!', 5, '2024-12-03', 'U001', 'C001'),
+('R002', 'The instructor explained concepts clearly.', 4, '2024-12-04', 'U002', 'C002'),
+('R003', 'Some parts were hard to follow, but overall good.', 3, '2024-12-05', 'U003', 'C003'),
+('R004', 'Great course, learned a lot!', 5, '2024-12-06', 'U004', 'C004'),
+('R005', 'The material could be more engaging.', 3, '2024-12-07', 'U005', 'C005');
