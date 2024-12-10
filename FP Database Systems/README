@@ -1,14 +1,1 @@
-// QUERY
-Simple Query
-1. Display all courses priced below 100.
-2. Retrieve the full name and email of all users who registered after January 14, 2023.
-3. List all tutors along with their specializations.
 
-Aggregate Query
-4. Calculate the total revenue from all payments.
-5. Count the total number of users who have attempted any quiz.
-6. Find the course with the highest rating.
-
-Nested Query
-7. Display the names of users who registered for the most expensive course.
-8. Show the course name that includes the quiz with the highest passing grade.
