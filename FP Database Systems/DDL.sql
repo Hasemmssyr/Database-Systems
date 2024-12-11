@@ -62,6 +62,7 @@ CREATE TABLE Quiz_Attempts (
 CREATE TABLE Registration (
     registration_ID CHAR(5) PRIMARY KEY,
     registration_time DATETIME,
+    registration_expired_date DATETIME,
     registration_status VARCHAR(10),
     user_ID CHAR(5),
     course_ID CHAR(5)
