@@ -11,5 +11,5 @@ Agregate Query
 
 Nested Query
 8. Find Username, full name, and Email for Users Who Have Passed the Geometry Quiz
-9. 2.	Find the names of users who hasn’t give review yet
+9. 3.	Display the course name (course_title) and total amount of payments received. Display only courses who have received more than the average total payment received by all courses. Sort the results by highest total payment amount
 10. Display the course name (course_title), tutor name (tutor_full_name), and total amount of payments received by each tutor for the courses they teach. Display only tutors who have received more than the average total payment received by all tutors. Sort the results by highest total payment amount.
