@@ -91,8 +91,7 @@ WHERE U.user_ID NOT IN (
 
 --10
 SELECT 
-    c.course_title, 
-    t.tutor_full_name, 
+    c.course_title,
     (
         SELECT SUM(p.payment_amount)
         FROM Payment p
@@ -100,7 +99,6 @@ SELECT
         WHERE r.course_ID = c.course_ID
     ) AS total_payments
 FROM Courses c
-JOIN Tutors t ON c.course_ID = t.course_ID
 WHERE (
     SELECT AVG(total_payment)
     FROM (
