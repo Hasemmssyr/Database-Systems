@@ -12,9 +12,9 @@ WITH cte AS (
     JOIN registration ON registration.course_ID = courses.course_ID
     JOIN users ON users.user_ID = registration.user_ID
     GROUP BY courses.course_ID, courses.course_title
-    ORDER BY Average_Score ASC
 )
 SELECT cte.Course_Title, cte.Average_Score, cte.Average_Rating, COUNT(registration.course_ID) AS Total_Users
 FROM registration
 JOIN cte ON registration.course_ID = cte.course_ID
+WHERE cte.Average_Score = (SELECT MIN(Average_Score) FROM cte)
 GROUP BY cte.Course_Title, cte.Average_Score, cte.Average_Rating;
