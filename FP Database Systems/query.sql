@@ -1,3 +1,12 @@
+--
+ALTER TABLE payment
+	DROP FOREIGN KEY fk_payment_method;
+DROP TABLE payment_method;
+ALTER TABLE payment
+	DROP COLUMN method_id,
+	ADD column  payment_method VARCHAR(20);
+
+
 --1
 SELECT p.*
 FROM Payment p
