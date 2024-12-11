@@ -82,13 +82,11 @@ WHERE u.user_ID IN (
 );
 
 --9
-SELECT Tutors.tutor_name 
-FROM Tutors
-WHERE Tutors.tutor_id IN (
-    SELECT Courses.tutor_id 
-    FROM Courses
-    JOIN Lessons ON Courses.course_id = Lessons.course_id
-    WHERE Lessons.duration > 50
+SELECT U.user_ID, U.user_username, U.user_full_name
+FROM users U 
+WHERE U.user_ID NOT IN (
+    SELECT R.user_ID
+    FROM review R 
 );
 
 --10
