@@ -37,6 +37,16 @@ JOIN Payment p ON r.registration_ID = p.registration_ID
 GROUP BY c.course_ID, c.course_title
 ORDER BY Total_Pendapatan DESC;
 
+-- 4
+SELECT *
+FROM Users
+WHERE user_full_name LIKE 'A%' 
+   OR user_full_name LIKE 'E%' 
+   OR user_full_name LIKE 'I%' 
+   OR user_full_name LIKE 'O%' 
+   OR user_full_name LIKE 'U%';
+
+
 --5
 SELECT 
 	C.*,
