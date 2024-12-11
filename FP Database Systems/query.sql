@@ -82,24 +82,14 @@ WHERE u.user_ID IN (
 );
 
 --9
-SELECT 
-    u.user_username,
-    c.course_title,
-    user_reviews.total_reviews,
-    user_reviews.avg_rating
-FROM Users u
-JOIN (
-    SELECT 
-        r.user_ID, 
-        r.course_ID, 
-        COUNT(r.review_ID) AS total_reviews, 
-        AVG(r.review_rating) AS avg_rating
-    FROM Review r
-    GROUP BY r.user_ID, r.course_ID
-    HAVING COUNT(r.review_ID) > 3
-) user_reviews ON u.user_ID = user_reviews.user_ID
-JOIN Courses c ON user_reviews.course_ID = c.course_ID
-ORDER BY user_reviews.avg_rating DESC;
+SELECT Tutors.tutor_name 
+FROM Tutors
+WHERE Tutors.tutor_id IN (
+    SELECT Courses.tutor_id 
+    FROM Courses
+    JOIN Lessons ON Courses.course_id = Lessons.course_id
+    WHERE Lessons.duration > 50
+);
 
 --10
 SELECT 
