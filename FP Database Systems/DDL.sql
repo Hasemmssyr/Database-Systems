@@ -68,13 +68,18 @@ CREATE TABLE Registration (
     course_ID CHAR(5)
 );
 
+CREATE TABLE Payment_Method (
+    method_id CHAR(5) PRIMARY KEY,
+    method_name VARCHAR(20)
+);
+
 -- Table: Payment
 CREATE TABLE Payment (
     payment_ID CHAR(5) PRIMARY KEY,
     payment_amount DECIMAL(10,2),
-    payment_method VARCHAR(20),
     payment_status VARCHAR(10),
-    registration_ID CHAR(5)
+    registration_ID CHAR(5),
+    method_id CHAR(5)
 );
 
 -- Table: Review
@@ -114,10 +119,13 @@ ALTER TABLE Registration
 
 ALTER TABLE Payment
     ADD CONSTRAINT fk_payment_registration FOREIGN KEY (registration_ID) REFERENCES Registration(registration_ID)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+    ADD CONSTRAINT fk_payment_method FOREIGN KEY (method_id) REFERENCES payment_method(method_id)
     ON DELETE CASCADE ON UPDATE CASCADE;
-
+    
 ALTER TABLE Review
     ADD CONSTRAINT fk_review_course FOREIGN KEY (course_ID) REFERENCES Courses(course_ID)
     ON DELETE CASCADE ON UPDATE CASCADE,
     ADD CONSTRAINT fk_review_user FOREIGN KEY (user_ID) REFERENCES Users(user_ID)
     ON DELETE CASCADE ON UPDATE CASCADE;
+
