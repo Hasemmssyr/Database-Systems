@@ -2,8 +2,8 @@ WITH cte AS (
     SELECT 
         courses.course_ID,
         courses.course_title AS Course_Title,
-        AVG(review.review_rating) AS Average_Rating,
-        AVG(quiz_attempts.attempt_score) AS Average_Score
+        ROUND(AVG(review.review_rating), 2) AS Average_Rating,
+        ROUND(AVG(quiz_attempts.attempt_score), 2) AS Average_Score
     FROM courses
     JOIN lessons ON courses.course_ID = lessons.course_ID
     JOIN quizzes ON lessons.lesson_ID = quizzes.lesson_ID
